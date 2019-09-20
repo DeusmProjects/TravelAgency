@@ -9,7 +9,7 @@ import {InfoComponent} from './info/info.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'tours', component: ToursComponent },
+  { path: 'tours', loadChildren: './tours/tours.module#ToursModule' },
   { path: 'cities', component: CitiesComponent },
   { path: 'info', component: InfoComponent },
   { path: '**', component: NotFoundComponent },
