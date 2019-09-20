@@ -10,6 +10,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { InfoComponent } from './info/info.component';
+import { CitiesComponent } from './cities/cities.component';
+import { ToursComponent } from './tours/tours.component';
+import { LazyLoadingComponent } from './lazy-loading/lazy-loading.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +22,12 @@ import {MDBBootstrapModule} from 'angular-bootstrap-md';
     HeaderComponent,
     AboutComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    NotFoundComponent,
+    InfoComponent,
+    CitiesComponent,
+    ToursComponent,
+    LazyLoadingComponent
   ],
   imports: [
     BrowserModule,
