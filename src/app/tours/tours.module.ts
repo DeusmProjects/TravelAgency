@@ -13,7 +13,7 @@ export const ROUTES: Routes = [
   ],
   imports: [
     RouterModule.forChild(ROUTES),
-    // CommonModule
+    CommonModule
   ]
 })
 export class ToursModule { }

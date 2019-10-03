@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,9 +11,6 @@ import {MatButtonModule} from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { InfoComponent } from './info/info.component';
-import { CitiesComponent } from './cities/cities.component';
-import { ToursComponent } from './tours/tours.component';
 
 @NgModule({
   declarations: [
@@ -21,15 +19,14 @@ import { ToursComponent } from './tours/tours.component';
     FooterComponent,
     HomeComponent,
     NotFoundComponent,
-    InfoComponent,
-    CitiesComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,
     AppRoutingModule,
-    MDBBootstrapModule
+    MDBBootstrapModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
