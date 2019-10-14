@@ -20,4 +20,12 @@ export class CitiesComponent implements OnInit {
       .subscribe(result => this.cities = result);
   }
 
+  deleteCity(id: number) {
+    const index = this.cities.findIndex(city => city.id === id);
+    this.cities.splice(index, 1);
+    this.httpService
+      .delete(`http://localhost:5000/cities/delete`, id)
+      .subscribe();
+  }
+
 }

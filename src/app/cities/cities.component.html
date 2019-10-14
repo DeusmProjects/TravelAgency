@@ -1,1 +1,20 @@
-<p>cities works!</p>
+<button type="button" mdbBtn color="dark" size="small" mdbWavesEffect>Добавить</button>
+
+<table mdbTable style="width: 100%">
+  <thead class="black white-text">
+  <tr>
+    <th>id</th>
+    <th>name</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr mdbTableCol *ngFor="let city of cities">
+    <th scope="row">{{city.id}}</th>
+    <td>{{ city.name }}</td>
+    <td>
+      <button type="button" (click)="deleteCity(city.id)" mdbBtn color="dark" mdbWavesEffect>Удалить</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
