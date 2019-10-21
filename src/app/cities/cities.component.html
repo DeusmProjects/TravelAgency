@@ -1,19 +1,24 @@
-<button type="button" mdbBtn color="dark" size="small" mdbWavesEffect>Добавить</button>
+<button type="button" mdbBtn color="dark" size="small" mdbWavesEffect (click)="isUpdate ? updateCity() : addCity()">{{ isUpdate ? "Обновить" : "Добавить" }}</button>
+<div class="md-form" style="width: 20%; display: inline-block; margin-left: 3%">
+  <input mdbInput type="text" id="newCityInput" class="form-control" [(ngModel)]="cityModel.name" />
+  <label for="newCityInput" class="">Название города</label>
+</div>
 
 <table mdbTable style="width: 100%">
   <thead class="black white-text">
   <tr>
     <th>id</th>
-    <th>name</th>
+    <th>Название</th>
     <th></th>
   </tr>
   </thead>
   <tbody>
   <tr mdbTableCol *ngFor="let city of cities">
-    <th scope="row">{{city.id}}</th>
-    <td>{{ city.name }}</td>
+    <th scope="row" style="font-size: 120%">{{city.id}}</th>
+    <td style="font-size: 120%">{{ city.name }}</td>
     <td>
-      <button type="button" (click)="deleteCity(city.id)" mdbBtn color="dark" mdbWavesEffect>Удалить</button>
+      <button type="button" (click)="deleteCity(city.id)" mdbBtn color="dark" style="font-size: 70%;" mdbWavesEffect>Удалить</button>
+      <button type="button" (click)="startUpdate(city.id)" mdbBtn color="dark" style="font-size: 70%;" mdbWavesEffect>Изменить</button>
     </td>
   </tr>
   </tbody>

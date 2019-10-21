@@ -12,6 +12,9 @@ export class CitiesComponent implements OnInit {
 
   cities: City[] = [];
 
+  cityModel: City = new City();
+  isUpdate: boolean = false;
+
   constructor(private httpService: CitiesService) { }
 
   ngOnInit() {
@@ -22,10 +25,42 @@ export class CitiesComponent implements OnInit {
 
   deleteCity(id: number) {
     const index = this.cities.findIndex(city => city.id === id);
-    this.cities.splice(index, 1);
-    this.httpService
-      .delete(`http://localhost:5000/cities/delete`, id)
-      .subscribe();
+
+    if (index !== -1) {
+      this.cities.splice(index, 1);
+      this.httpService
+        .delete(`http://localhost:5000/cities/delete`, id)
+        .subscribe();
+    }
   }
 
+  updateCity() {
+    const index = this.cities.findIndex(city => city.id === this.cityModel.id);
+
+    if (index !== -1) {
+      this.cities[index] = this.cityModel;
+      this.httpService
+        .put(`http://localhost:5000/cities/update`, this.cityModel)
+        .subscribe(result => {
+          this.cityModel = new City();
+          this.isUpdate = false;
+        });
+    }
+  }
+
+  startUpdate(id: number) {
+    this.isUpdate = true;
+    this.cityModel.name = this.cities.find(city => city.id == id).name;
+    this.cityModel.id = id;
+  }
+
+  addCity() {
+    console.log(this.cityModel);
+    this.httpService
+      .post('http://localhost:5000/cities/add',this.cityModel)
+      .subscribe(result => {
+        this.cityModel = new City();
+        this.cities.push(result);
+      });
+  }
 }

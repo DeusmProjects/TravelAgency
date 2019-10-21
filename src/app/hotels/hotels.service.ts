@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {City} from './city';
+import {Hotel} from './hotel';
 
 @Injectable()
-export class CitiesService {
+export class HotelsService {
 
   constructor(private httpClient: HttpClient) { }
 
@@ -16,15 +16,15 @@ export class CitiesService {
     return this.httpClient.get(url);
   }
 
-  public post(url: string, city: City): Observable<any> {
-    return this.httpClient.post<City>(url, city, this.options );
+  public post(url: string, hotel: Hotel): Observable<any> {
+    return this.httpClient.post<Hotel>(url, hotel, this.options );
   }
 
   public delete(url: string, id: number): Observable<{}> {
-    return this.httpClient.delete<City>(`${url}/${id}`);
+    return this.httpClient.delete<Hotel>(`${url}/${id}`);
   }
 
-  public put(url: string, city: City): Observable<any> {
-    return this.httpClient.put<City>(`${url}/${city.id}`, city, this.options);
+  public put(url: string, hotel: Hotel): Observable<any> {
+    return this.httpClient.put<Hotel>(`${url}/${hotel.id}`, hotel, this.options);
   }
 }

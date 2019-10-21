@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {HotelsComponent} from './hotels.component';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import {FormsModule} from "@angular/forms";
 
 export const ROUTES: Routes = [
   { path: '', component: HotelsComponent }
@@ -13,7 +15,9 @@ export const ROUTES: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(ROUTES)
+    MDBBootstrapModule,
+    RouterModule.forChild(ROUTES),
+    FormsModule
   ]
 })
 export class HotelsModule { }

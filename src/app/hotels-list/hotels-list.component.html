@@ -1,0 +1,45 @@
+<h1 class="hotels-list-label">Список отелей</h1>
+
+<mdb-card *ngFor="let hotel of hotels" class="card-hotel">
+  <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+    <!-- Card img -->
+    <mdb-card-img src="{{ hotel.photo }}" alt="Card image cap"></mdb-card-img>
+    <a>
+      <div class="mask"></div>
+    </a>
+  </div>
+  <!--Card content-->
+  <mdb-card-body>
+    <!--Title-->
+    <mdb-card-title>
+      <h4>{{ hotel.name }}</h4>
+    </mdb-card-title>
+
+    <!--Text-->
+    <mdb-card-text>
+      Рейтинг: {{ hotel.rating }}
+    </mdb-card-text>
+
+    <a href="#" mdbBtn color="primary" mdbWavesEffect>Подробнее</a>
+  </mdb-card-body>
+</mdb-card>
+
+<!--<mat-card class="example-card">-->
+<!--  <mat-card-header>-->
+<!--    <div mat-card-avatar class="example-header-image"></div>-->
+<!--    <mat-card-title>Shiba Inu</mat-card-title>-->
+<!--    <mat-card-subtitle>Dog Breed</mat-card-subtitle>-->
+<!--  </mat-card-header>-->
+<!--  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+<!--  <mat-card-content>-->
+<!--    <p>-->
+<!--      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.-->
+<!--      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally-->
+<!--      bred for hunting.-->
+<!--    </p>-->
+<!--  </mat-card-content>-->
+<!--  <mat-card-actions>-->
+<!--    <button mat-button>LIKE</button>-->
+<!--    <button mat-button>SHARE</button>-->
+<!--  </mat-card-actions>-->
+<!--</mat-card>-->

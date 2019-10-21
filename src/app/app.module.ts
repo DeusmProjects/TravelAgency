@@ -11,6 +11,7 @@ import {MatButtonModule} from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { HotelsListComponent } from './hotels-list/hotels-list.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FooterComponent,
     HomeComponent,
     NotFoundComponent,
+    HotelsListComponent,
   ],
   imports: [
     BrowserModule,

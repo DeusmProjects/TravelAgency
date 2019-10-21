@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {CitiesComponent} from './cities.component';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import {FormsModule} from "@angular/forms";
 
 export const ROUTES: Routes = [
   { path: '', component: CitiesComponent }
@@ -15,7 +16,8 @@ export const ROUTES: Routes = [
   imports: [
     CommonModule,
     MDBBootstrapModule,
-    RouterModule.forChild(ROUTES)
+    RouterModule.forChild(ROUTES),
+    FormsModule
   ]
 })
 export class CitiesModule { }
