@@ -11,6 +11,13 @@
         <li class="nav-item waves-light" mdbWavesEffect>
           <a class="nav-link" routerLink="/hotels">Отели</a>
         </li>
+        <li class="nav-item waves-light" mdbWavesEffect *ngIf="cookies.getAuth()">
+          <a class="nav-link" (click)="logOut()">Выход</a>
+        </li>
+
+        <li class="nav-item waves-light" mdbWavesEffect *ngIf="!cookies.getAuth()">
+          <a class="nav-link" routerLink="/auth">Вход</a>
+        </li>
       </ul>
     </links>
   </mdb-navbar>

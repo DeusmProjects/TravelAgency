@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HotelsService} from "../hotels/hotels.service";
-import {Hotel} from "../hotels/hotel";
+import {Hotel} from "../models/hotel";
 
 @Component({
   selector: 'app-hotels-list',

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthCookie} from "../auth_cookie";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cookies : AuthCookie, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  logOut() {
+    this.cookies.deleteAuth();
+    this.router.navigate(['/']);
   }
 
 }

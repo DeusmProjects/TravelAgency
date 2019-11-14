@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CitiesService } from './cities.service';
-import {City} from './city';
+import {City} from '../models/city';
+import {Router} from "@angular/router";
+import {AuthCookie} from "../auth_cookie";
 
 @Component({
   selector: 'app-cities',
@@ -15,12 +17,18 @@ export class CitiesComponent implements OnInit {
   cityModel: City = new City();
   isUpdate: boolean = false;
 
-  constructor(private httpService: CitiesService) { }
+  constructor(private httpService: CitiesService, private router : Router, private cookies : AuthCookie) { }
 
   ngOnInit() {
     this.httpService
-      .get('http://localhost:5000/cities')
-      .subscribe(result => this.cities = result);
+      .get('http://localhost:5000/cities/' + this.cookies.getAuth())
+      .subscribe(result => {
+        if (result) {
+          this.cities = result;
+        } else {
+          this.router.navigate(['/']);
+        }
+      });
   }
 
   deleteCity(id: number) {
@@ -50,8 +58,7 @@ export class CitiesComponent implements OnInit {
 
   startUpdate(id: number) {
     this.isUpdate = true;
-    this.cityModel.name = this.cities.find(city => city.id == id).name;
-    this.cityModel.id = id;
+    this.cityModel = JSON.parse(JSON.stringify(this.cities.find(city => city.id === id)));
   }
 
   addCity() {

@@ -7,11 +7,16 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material';
+import {MatButtonModule, MatTabsModule} from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HotelsListComponent } from './hotels-list/hotels-list.component';
+import {AuthComponent} from "./auth/auth.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { RegistrationComponent } from './registration/registration.component';
+import {AuthCookie} from "./auth_cookie";
+import {ActivateGuard} from "./ActivateGuard";
 
 @NgModule({
   declarations: [
@@ -19,8 +24,10 @@ import { HotelsListComponent } from './hotels-list/hotels-list.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
+    AuthComponent,
     NotFoundComponent,
     HotelsListComponent,
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +35,12 @@ import { HotelsListComponent } from './hotels-list/hotels-list.component';
     MatButtonModule,
     AppRoutingModule,
     MDBBootstrapModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatTabsModule,
+    AuthCookie,
+    ActivateGuard
   ],
   providers: [],
   bootstrap: [AppComponent]

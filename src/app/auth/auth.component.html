@@ -1,0 +1,15 @@
+<div style="width: 25%; margin-left: 15%">
+  <div class="md-form">
+    <mdb-icon fas icon="envelope" class="prefix"></mdb-icon>
+    <input mdbInput type="text" id="mail-input" class="form-control" [(ngModel)]="customerModel.email" maxlength="25"/>
+    <label for="mail-input" class="">Почта</label>
+  </div>
+  <div class="md-form">
+    <mdb-icon fas icon="lock" class="prefix"></mdb-icon>
+    <input mdbInput type="password" id="password-input" class="form-control" [(ngModel)]="customerModel.password" maxlength="25"/>
+    <label for="password-input" class="">Пароль</label>
+  </div>
+
+  <button mdbBtn type="button" color="dark" mdbWavesEffect (click)="signIn()">Войти</button>
+  <button mdbBtn type="button" color="primary" routerLink="/registration" mdbWavesEffect>Регистрация</button>
+</div>
