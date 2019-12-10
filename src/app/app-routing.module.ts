@@ -5,11 +5,13 @@ import { HomeComponent } from './home/home.component';
 import {AuthComponent} from "./auth/auth.component";
 import {RegistrationComponent} from "./registration/registration.component";
 import {ActivateGuard} from "./ActivateGuard";
+import {FilesUploadComponent} from "./files-upload/files-upload.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'cities', loadChildren: './cities/cities.module#CitiesModule', canActivate: [ActivateGuard] },
-  { path: 'hotels', loadChildren: './hotels/hotels.module#HotelsModule' },
+  { path: 'hotels', loadChildren: './hotels/hotels.module#HotelsModule', canActivate: [ActivateGuard] },
+  { path: 'files', component: FilesUploadComponent },
   { path: 'auth', component: AuthComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: '**', component: NotFoundComponent }

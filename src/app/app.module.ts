@@ -17,6 +17,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { RegistrationComponent } from './registration/registration.component';
 import {AuthCookie} from "./auth_cookie";
 import {ActivateGuard} from "./ActivateGuard";
+import { FilesUploadComponent } from './files-upload/files-upload.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {ActivateGuard} from "./ActivateGuard";
     NotFoundComponent,
     HotelsListComponent,
     RegistrationComponent,
+    FilesUploadComponent,
   ],
   imports: [
     BrowserModule,

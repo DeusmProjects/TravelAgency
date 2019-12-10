@@ -35,5 +35,6 @@ export class AuthCookie {
   deleteAuth(): void {
     this.authState.next(false);
     Cookie.delete('id_token');
+    this.isAdmin = false;
   }
 }
