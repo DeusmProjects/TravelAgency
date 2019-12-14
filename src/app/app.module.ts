@@ -18,6 +18,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import {AuthCookie} from "./auth_cookie";
 import {ActivateGuard} from "./ActivateGuard";
 import { FilesUploadComponent } from './files-upload/files-upload.component';
+import { HotelSearchComponent } from './hotel-search/hotel-search.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { FilesUploadComponent } from './files-upload/files-upload.component';
     HotelsListComponent,
     RegistrationComponent,
     FilesUploadComponent,
+    HotelSearchComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import {Hotel} from "../models/hotel";
 export class HotelsListComponent implements OnInit {
 
   hotels: Hotel[] = [];
+  search: string = "";
 
   constructor(private httpService : HotelsService) { }
 
@@ -20,4 +21,11 @@ export class HotelsListComponent implements OnInit {
       .subscribe(result => this.hotels = result.hotels);
   }
 
+  changeInput() {
+    console.log('search', this.search);
+
+    this.httpService
+      .get('http://localhost:5000/hotels/' + this.search)
+      .subscribe(result => this.hotels = result.hotels);
+  }
 }

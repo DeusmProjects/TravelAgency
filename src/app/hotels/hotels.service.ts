@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {Hotel} from '../models/hotel';
 
 @Injectable()
@@ -26,5 +26,11 @@ export class HotelsService {
 
   public put(url: string, hotel: Hotel): Observable<any> {
     return this.httpClient.put<Hotel>(`${url}/${hotel.id}`, hotel, this.options);
+  }
+
+  public searchHotels(term: string): Observable<Hotel[]> {
+    if (!term.trim()) return of([]);
+
+    return this.httpClient.get<Hotel[]>(`http://localhost:5000/hotels/${term}`)
   }
 }

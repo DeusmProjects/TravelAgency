@@ -6,12 +6,14 @@ import {AuthComponent} from "./auth/auth.component";
 import {RegistrationComponent} from "./registration/registration.component";
 import {ActivateGuard} from "./ActivateGuard";
 import {FilesUploadComponent} from "./files-upload/files-upload.component";
+import {HotelSearchComponent} from "./hotel-search/hotel-search.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'cities', loadChildren: './cities/cities.module#CitiesModule', canActivate: [ActivateGuard] },
   { path: 'hotels', loadChildren: './hotels/hotels.module#HotelsModule', canActivate: [ActivateGuard] },
   { path: 'files', component: FilesUploadComponent },
+  { path: 'search', component: HotelSearchComponent },
   { path: 'auth', component: AuthComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: '**', component: NotFoundComponent }
