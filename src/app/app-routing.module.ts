@@ -10,8 +10,8 @@ import {HotelSearchComponent} from "./hotel-search/hotel-search.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'cities', loadChildren: './cities/cities.module#CitiesModule', canActivate: [ActivateGuard] },
-  { path: 'hotels', loadChildren: './hotels/hotels.module#HotelsModule', canActivate: [ActivateGuard] },
+  { path: 'cities', loadChildren: './cities/cities.module#CitiesModule' },
+  { path: 'hotels', loadChildren: './hotels/hotels.module#HotelsModule' },
   { path: 'files', component: FilesUploadComponent },
   { path: 'search', component: HotelSearchComponent },
   { path: 'auth', component: AuthComponent },

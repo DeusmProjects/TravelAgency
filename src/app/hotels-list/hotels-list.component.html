@@ -1,12 +1,8 @@
 <h1 class="hotels-list-label">Список отелей</h1>
-<div class="md-form" style="width: 20%; margin-left: 40%">
-  <input mdbInput type="text" id="input-search" (ngModelChange)="changeInput()" [(ngModel)]="search" class="form-control">
-  <label for="input-search" class="">Поиск</label>
-</div>
 <mdb-card *ngFor="let hotel of hotels" class="card-hotel">
   <div class="view rgba-white-slight waves-light" mdbWavesEffect>
     <!-- Card img -->
-    <mdb-card-img src="{{ hotel.photo }}" alt="Card image cap"></mdb-card-img>
+<!--    <mdb-card-img src="{{ hotel.photo }}" alt="Card image cap"></mdb-card-img>-->
     <a>
       <div class="mask"></div>
     </a>

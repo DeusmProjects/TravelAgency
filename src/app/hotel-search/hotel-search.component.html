@@ -3,8 +3,27 @@
   <label for="searchBox" class="">Поиск</label>
 </div>
 
-<ul>
-  <li *ngFor="let hotel of hotels$ | async">
-    <a>{{ hotel.name }}</a>
-  </li>
-</ul>
+
+<mdb-card *ngFor="let hotel of hotels$ | async" class="card-hotel">
+  <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+    <!-- Card img -->
+    <!--    <mdb-card-img src="{{ hotel.photo }}" alt="Card image cap"></mdb-card-img>-->
+    <a>
+      <div class="mask"></div>
+    </a>
+  </div>
+  <!--Card content-->
+  <mdb-card-body>
+    <!--Title-->
+    <mdb-card-title>
+      <h4>{{ hotel.name }}</h4>
+    </mdb-card-title>
+
+    <!--Text-->
+    <mdb-card-text>
+      Рейтинг: {{ hotel.rating }}
+    </mdb-card-text>
+
+    <a href="#" mdbBtn color="primary" mdbWavesEffect>Подробнее</a>
+  </mdb-card-body>
+</mdb-card>
