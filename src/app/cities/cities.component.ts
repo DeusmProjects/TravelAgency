@@ -21,7 +21,7 @@ export class CitiesComponent implements OnInit {
 
   ngOnInit() {
     this.httpService
-      .get('http://localhost:5000/cities/' + this.cookies.getAuth())
+      .get()
       .subscribe(result => {
         if (result) {
           this.cities = result;
@@ -37,7 +37,7 @@ export class CitiesComponent implements OnInit {
     if (index !== -1) {
       this.cities.splice(index, 1);
       this.httpService
-        .delete(`http://localhost:5000/cities/delete`, id)
+        .delete(id)
         .subscribe();
     }
   }
@@ -48,7 +48,7 @@ export class CitiesComponent implements OnInit {
     if (index !== -1) {
       this.cities[index] = this.cityModel;
       this.httpService
-        .put(`http://localhost:5000/cities/update`, this.cityModel)
+        .put(this.cityModel)
         .subscribe(result => {
           this.cityModel = new City();
           this.isUpdate = false;
@@ -64,7 +64,7 @@ export class CitiesComponent implements OnInit {
   addCity() {
     console.log(this.cityModel);
     this.httpService
-      .post('http://localhost:5000/cities/add',this.cityModel)
+      .post(this.cityModel)
       .subscribe(result => {
         this.cityModel = new City();
         this.cities.push(result);

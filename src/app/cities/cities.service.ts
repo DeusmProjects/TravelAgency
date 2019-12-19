@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {City} from '../models/city';
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class CitiesService {
@@ -12,19 +13,21 @@ export class CitiesService {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
   };
 
-  public get(url: string): Observable<any> {
-    return this.httpClient.get(url);
+  url = environment.server;
+
+  public get(): Observable<any> {
+    return this.httpClient.get(this.url + '/cities');
   }
 
-  public post(url: string, city: City): Observable<any> {
-    return this.httpClient.post<City>(url, city, this.options );
+  public post(city: City): Observable<any> {
+    return this.httpClient.post<City>(this.url + '/cities/add', city, this.options );
   }
 
-  public delete(url: string, id: number): Observable<{}> {
-    return this.httpClient.delete<City>(`${url}/${id}`);
+  public delete(id: number): Observable<{}> {
+    return this.httpClient.delete<City>(`${this.url}/cities/delete/${id}`);
   }
 
-  public put(url: string, city: City): Observable<any> {
-    return this.httpClient.put<City>(`${url}/${city.id}`, city, this.options);
+  public put(city: City): Observable<any> {
+    return this.httpClient.put<City>(`${this.url}/cities/update/${city.id}`, city, this.options);
   }
 }

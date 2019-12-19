@@ -22,7 +22,7 @@ export class HotelsComponent implements OnInit {
 
   ngOnInit() {
     this.httpService
-      .get('http://localhost:5000/hotels')
+      .get()
       .subscribe(result => {
         this.hotels = result.hotels;
         this.cities = result.cities;
@@ -35,7 +35,7 @@ export class HotelsComponent implements OnInit {
     if (index !== -1) {
       this.hotels.splice(index, 1);
       this.httpService
-        .delete(`http://localhost:5000/hotels/delete`, id)
+        .delete(id)
         .subscribe();
     }
   }
@@ -52,7 +52,7 @@ export class HotelsComponent implements OnInit {
     if (index !== -1) {
       this.hotels[index] = this.hotelModel;
       this.httpService
-        .put(`http://localhost:5000/hotels/update`, this.hotelModel)
+        .put(this.hotelModel)
         .subscribe(result => {
           this.hotelModel = new Hotel();
           this.isUpdate = false;
@@ -62,7 +62,7 @@ export class HotelsComponent implements OnInit {
 
   addHotel() {
     this.httpService
-      .post('http://localhost:5000/hotels/add',this.hotelModel)
+      .post(this.hotelModel)
       .subscribe(result => {
         this.hotels.push(result);
         this.hotelModel = new Hotel();

@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private cookies : AuthCookie, private router: Router) { }
+  constructor(public cookies : AuthCookie, private router: Router) { }
 
   ngOnInit() {
   }

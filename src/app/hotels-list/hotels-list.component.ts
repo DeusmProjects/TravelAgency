@@ -18,7 +18,7 @@ export class HotelsListComponent implements OnInit {
 
   ngOnInit() {
     this.httpService
-      .get('http://localhost:5000/hotels')
+      .get()
       .subscribe(result => this.hotels = result.hotels);
 
 
@@ -26,13 +26,5 @@ export class HotelsListComponent implements OnInit {
       console.log(JSON.parse(result.data).hotels);
       this.hotels = JSON.parse(result.data).hotels;
     }
-  }
-
-  changeInput() {
-    console.log('search', this.search);
-
-    this.httpService
-      .get('http://localhost:5000/hotels/' + this.search)
-      .subscribe(result => this.hotels = result.hotels);
   }
 }

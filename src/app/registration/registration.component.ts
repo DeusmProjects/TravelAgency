@@ -26,7 +26,7 @@ export class RegistrationComponent implements OnInit {
     console.log(this.customerModel);
 
     this.httpService
-      .post('http://localhost:5000/customers/reg', this.customerModel)
+      .post(this.customerModel)
       .subscribe((result) => {
         if (!result) return;
         this.cookies.setAuth(result.token);

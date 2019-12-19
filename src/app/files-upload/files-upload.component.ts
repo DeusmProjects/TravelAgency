@@ -33,7 +33,7 @@ export class FilesUploadComponent implements OnInit {
     this.isUpload = true;
 
     this.httpService
-      .post('http://localhost:5000/files/upload', formData)
+      .post(formData)
       .subscribe(res => {
         this.isUpload = false;
 

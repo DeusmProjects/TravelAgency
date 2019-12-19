@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Customer} from "../models/customer";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,9 @@ export class AuthService {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
   };
 
-  public post(url: string, customer: Customer): Observable<any> {
-    return this.httpClient.post<Customer>(url, customer, this.options );
+  url = environment.server;
+
+  public post(customer: Customer): Observable<any> {
+    return this.httpClient.post<Customer>(this.url + '/customers/auth', customer, this.options );
   }
 }

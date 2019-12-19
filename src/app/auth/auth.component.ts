@@ -26,7 +26,7 @@ export class AuthComponent implements OnInit {
     console.log(this.customerModel);
 
     this.httpService
-      .post('http://localhost:5000/customers/auth', this.customerModel)
+      .post(this.customerModel)
       .subscribe((result: any) => {
         if (!result) return;
         this.cookies.setAuth(result.token);

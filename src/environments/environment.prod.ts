@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  server: 'https://classic-travel-back.herokuapp.com',
+  websocket: 'wss://classic-travel-back.herokuapp.com'
 };
